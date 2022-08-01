@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div>
+  <center>
     <router-view />
-  </div>
+  </center>
 </template>
 
 <style>

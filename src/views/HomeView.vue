@@ -39,46 +39,46 @@
 <input class="search" type="text" placeholder="Search Appartments, land, houses"><i class="bi bi-search p-3" style="background-color: #b00808; color: #fff;"></i>
   </div>
 </div>
-<div class="row container mx-5" style="margin-left: 20%;">
-  <div class="col-md-3">
+<div class="row mt-2" id="category-section">
+  <div class="col-lg-3 col-6">
     <div class="categories">
       <i class="bi bi-building"></i>
       <p>Apartments</p>
 
     </div>
   </div>
-  <div class="col-md-3 ">
+  <div class="col-lg-3 col-6 ">
     <div class="categories">
       <i class="bi bi-house-door-fill"></i>
 <p>Houses</p>
     </div>
   </div>
-    <div class="col-md-3 ">
+    <div class="col-lg-3 col-6 ">
       <div class="categories">
         <i class="bi bi-bricks"></i>
 <p>Hostels</p>
       </div>
   </div>
-    <div class="col-md-3">
+    <div class="col-lg-3 col-6">
       <div class="categories">
         <i class="bi bi-shop"></i>
-<p>Bars & Restaurants</p>
+<p>Mortgages</p>
       </div>
   </div>
 </div>
-<div class="row container m-5" style="margin-left: 20%;">
+<div class="row" id="about-section">
   <div class="col-md-6">
     <img style="width: 100%;" src="https://media.istockphoto.com/photos/young-african-woman-relaxing-at-home-with-a-digital-tablet-picture-id896374860?k=20&m=896374860&s=612x612&w=0&h=Y2LR9GfsLDYCGN7GTt09RFhJv6sR37AMkFAeDhJYZVc=">
   </div>
   <div class="col-md-6 p-5">
     <h3 style="color: #b00808;">About Us</h3>
     <br/>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <p style="text-align: left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   </div>
 </div>
-<h3 class="text-center featured">Featured Property</h3>
+<h3 class="text-center featured" style="color: #b00808;">Featured Property</h3>
 <div class="row mx-5">
-<div class="col-md-3 p-3" v-for="house in houses" :key="house.id">
+<div class="col-lg-3 col-6 p-3" v-for="house in houses" :key="house.id">
   <div class="border-2 cursor-pointer" id="card">
   <div>
     <img class="w-100" :src="house.photo">
@@ -95,6 +95,19 @@
   </div>
 
 </div>
+</div>
+<div class="row" style="background-color: #b00808;">
+  <div class="col-md-3">
+    <img style="width: 100%;" src="https://media.istockphoto.com/photos/excited-black-guy-with-computer-shaking-fists-over-gray-wall-picture-id1322879265?k=20&m=1322879265&s=612x612&w=0&h=EzYRmXcYXLS-D72Bdmm7A-mH8bj3giw3t0fXyZ6o4y4=">
+  </div>
+  <div class="col-md-3">
+    <img style="width: 100%; margin-left: -50px;" src="https://media.istockphoto.com/photos/positive-african-american-lady-pointing-up-at-copy-space-picture-id1352854927?k=20&m=1352854927&s=612x612&w=0&h=E6yHxaP_BuFFvLUeeTii55qR4Yzmzp6sDnjges833ZY=">
+  </div>
+  <div class="col-md-6 p-5" style="background-color: #b00808;">
+    <h3 class="text-white">Sell And Buy With Us Quickly & Easily</h3>
+    <p class="text-white">Anywhere and any time you want to buy and sell with us, we shall be available to save the day</p>
+
+  </div>
 </div>
 <SliderSlider/>
 </div>
@@ -125,7 +138,7 @@ export default {
           location: "Mukono Seeta",
           category: "Mortgage",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173865/Kallery/pamoja/h4_cwxl8c.jpg",
+            "https://media.istockphoto.com/photos/exterior-facade-of-a-white-new-construction-house-picture-id1223041319?k=20&m=1223041319&s=612x612&w=0&h=uc52sJhQPAHoGHqjGmDUsJhtl1fXRc3HsD1QFn0IqO4=",
         },
         {
           id: 2,
@@ -137,7 +150,7 @@ export default {
           location: "Kampala Bugolobi",
           category: "Mortgage",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173862/Kallery/pamoja/h12_venkz0.jpg",
+            "https://media.istockphoto.com/photos/empty-white-new-construction-cottage-house-just-completed-picture-id1128971960?k=20&m=1128971960&s=612x612&w=0&h=aFsHnnUSVGzgFoKVR0humPn0EBCAQIvz_laAjnzqXsY=",
         },
         {
           id: 3,
@@ -149,7 +162,7 @@ export default {
           location: "Mukono Seeta",
           category: "Sell",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173862/Kallery/pamoja/h16_puvmwh.jpg",
+            "https://media.istockphoto.com/photos/simple-but-modern-house-design-picture-id172255695?k=20&m=172255695&s=612x612&w=0&h=fUtqjF1b3VDPCTJFeH4kBy5HAc_jM5bzu8yOjidRSEA=",
         },
         {
           id: 4,
@@ -161,7 +174,7 @@ export default {
           location: "Luweero",
           category: "Mortgage",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173861/Kallery/pamoja/h8_rkku3y.jpg",
+            "https://media.istockphoto.com/photos/side-and-real-view-of-craftsman-house-picture-id1158713212?k=20&m=1158713212&s=612x612&w=0&h=TOV1x9nl0vOH2i4pjamQVMwCYoWSerl6sIvJbVWZ7FI=",
         },
                 {
           id: 5,
@@ -173,7 +186,7 @@ export default {
           location: "Ntinda",
           category: "Sell",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173837/Kallery/pamoja/h6_hmekyn.jpg",
+            "https://media.istockphoto.com/photos/back-yard-of-two-story-home-picture-id1348833319?k=20&m=1348833319&s=612x612&w=0&h=0dfiAVxuzb9gWp7CxOk-bZragh-sYgEQPbQKQSo7NBQ=",
         },
         {
           id: 6,
@@ -185,7 +198,7 @@ export default {
           location: "Kireka",
           category: "Mortgage",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173837/Kallery/pamoja/h11_o1bnij.jpg",
+            "https://media.istockphoto.com/photos/beige-and-brown-siding-house-exterior-picture-id585780354?k=20&m=585780354&s=612x612&w=0&h=II0u7xPTi6nPGmvYTJGoxa7JjwDdeMM1EeHbuJfoD2c=",
         },
         {
           id: 7,
@@ -197,7 +210,7 @@ export default {
           location: "Mukono Seeta",
           category: "Sell",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173835/Kallery/pamoja/h13_zq2jx8.jpg",
+            "https://media.istockphoto.com/photos/new-modern-home-in-gray-with-a-green-lawn-picture-id175505035?k=20&m=175505035&s=612x612&w=0&h=dkv5viEDOh44lNkv6xwBTaEIsAZnJE7hz70W0enz-U0=",
         },
         {
           id: 8,
@@ -209,55 +222,7 @@ export default {
           location: "Luweero",
           category: "Mortgage",
           photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173818/Kallery/pamoja/h1_d5tv0u.jpg",
-        },
-                {
-          id: 9,
-          code: "PL009",
-          name: "Hostels for Makerere",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Mortgage",
-          photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173807/Kallery/pamoja/h7_gmm3q4.jpg",
-        },
-        {
-          id: 10,
-          code: "PL010",
-          name: "Appartments in Bugologbi",
-          amount:  "109,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Kampala Bugolobi",
-          category: "Mortgage",
-          photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173803/Kallery/pamoja/h14_e0eins.jpg",
-        },
-        {
-          id: 11,
-          code: "PL011",
-          name: "Well Established bar",
-          amount:  "60,000,000",
-          bedrooms:"4",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Sell",
-          photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173803/Kallery/pamoja/h14_e0eins.jpg",
-        },
-        {
-          id: 12,
-          code: "PL012",
-          name: "Land and Farm",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Luweero",
-          category: "Mortgage",
-          photo:
-            "https://res.cloudinary.com/dtlkiv19d/image/upload/v1659173803/Kallery/pamoja/h14_e0eins.jpg",
+            "https://media.istockphoto.com/photos/traditional-northwest-home-with-driveway-picture-id480774836?k=20&m=480774836&s=612x612&w=0&h=jg_MG29H6zqWGJcqjguwDTmd9ZQQgej8GYyXrEHSQJ8=",
         },
       ],
 
@@ -346,6 +311,10 @@ export default {
 };
 </script>
 <style>
+#category-section{
+  margin-left: 100px;
+  margin-right: 100px;
+}
 #card{
    box-shadow: 1px 2px 6px #888888;
 }
@@ -371,7 +340,8 @@ export default {
   color: #fff;
 }
 .overlay{
-  height: 80vh; background-color: rgba(0, 0, 0, 0.5); margin-top: -448px; padding-top: 8%;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.5); margin-top: -80vh; padding-top: 8%;
 }
 .slide1{
 background-image: url('https://res.cloudinary.com/dtlkiv19d/image/upload/v1659273740/Kallery/pamoja/pl1-min_ziesl2.jpg');
@@ -413,9 +383,20 @@ background-repeat: no-repeat;
 background-size: 100%;
   height: 80vh;
 }
+#about-section{
+  margin: 100px;
+}
+
 @media only screen and (max-width: 600px) {
 .banner-title{
   font-size: 17px;
+}
+.categories{
+  margin: 5px;
+}
+#category-section{
+  margin-left: 5px;
+  margin-right: 5px;
 }
 #card{
   width: 140%;
@@ -424,18 +405,24 @@ background-size: 100%;
 .featured{
   margin-top: 3vh;
 }
+#cate{
+    margin-left: -10vw;
+}
 .banner-slide{
   margin-top: -200px;
 }
 .overlay{
   height: 25vh;
-  margin-top: -380px;
+  margin-top: -53vh;
 }
 .search{
   width: 70%; padding-left: 10px;
 }
 .banner-sub-title{
   display: none;
+}
+#about-section{
+  margin: 10px;
 }
 }
 
