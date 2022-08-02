@@ -78,7 +78,7 @@
 </div>
 <h3 class="text-center featured" style="color: #b00808;">Featured Property</h3>
 <div class="row mx-5">
-<div class="col-lg-3 col-6 p-3" v-for="house in houses" :key="house.id">
+<div class="col-md-3 p-3" v-for="house in houses" :key="house.id">
   <div class="border-2 cursor-pointer" id="card">
   <div>
     <img class="w-100" :src="house.photo">
@@ -97,13 +97,11 @@
 </div>
 </div>
 <div class="row" style="background-color: #b00808;">
-  <div class="col-md-3">
-    <img style="width: 100%;" src="https://media.istockphoto.com/photos/excited-black-guy-with-computer-shaking-fists-over-gray-wall-picture-id1322879265?k=20&m=1322879265&s=612x612&w=0&h=EzYRmXcYXLS-D72Bdmm7A-mH8bj3giw3t0fXyZ6o4y4=">
+  <div class="col-md-7">
+    <img style="width: 50%;" src="https://media.istockphoto.com/photos/excited-black-guy-with-computer-shaking-fists-over-gray-wall-picture-id1322879265?k=20&m=1322879265&s=612x612&w=0&h=EzYRmXcYXLS-D72Bdmm7A-mH8bj3giw3t0fXyZ6o4y4=">
+   <img style="width: 50%;" src="https://media.istockphoto.com/photos/positive-african-american-lady-pointing-up-at-copy-space-picture-id1352854927?k=20&m=1352854927&s=612x612&w=0&h=E6yHxaP_BuFFvLUeeTii55qR4Yzmzp6sDnjges833ZY=">
   </div>
-  <div class="col-md-3">
-    <img style="width: 100%; margin-left: -50px;" src="https://media.istockphoto.com/photos/positive-african-american-lady-pointing-up-at-copy-space-picture-id1352854927?k=20&m=1352854927&s=612x612&w=0&h=E6yHxaP_BuFFvLUeeTii55qR4Yzmzp6sDnjges833ZY=">
-  </div>
-  <div class="col-md-6 p-5" style="background-color: #b00808;">
+  <div class="col-md-5 p-5" style="background-color: #b00808;">
     <h3 class="text-white">Sell And Buy With Us Quickly & Easily</h3>
     <p class="text-white">Anywhere and any time you want to buy and sell with us, we shall be available to save the day</p>
 
