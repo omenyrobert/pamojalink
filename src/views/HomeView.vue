@@ -36,7 +36,7 @@
        <br/>
   <div style="display: flex; justify-content: center;">
       <br/>
-<input class="search" type="text" placeholder="Search Appartments, land, houses"><i class="bi bi-search p-3" style="background-color: #b00808; color: #fff;"></i>
+<input class="search"   v-model="search" type="text" placeholder="Search Appartments, land, houses"><i class="bi bi-search p-3" style="background-color: #b00808; color: #fff;"></i>
   </div>
 </div>
 <div class="row mt-2" id="category-section">
@@ -66,19 +66,10 @@
       </div>
   </div>
 </div>
-<div class="row" id="about-section">
-  <div class="col-md-6">
-    <img style="width: 100%;" src="https://media.istockphoto.com/photos/young-african-woman-relaxing-at-home-with-a-digital-tablet-picture-id896374860?k=20&m=896374860&s=612x612&w=0&h=Y2LR9GfsLDYCGN7GTt09RFhJv6sR37AMkFAeDhJYZVc=">
-  </div>
-  <div class="col-md-6 p-5">
-    <h3 style="color: #b00808;">About Us</h3>
-    <br/>
-    <p style="text-align: left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-  </div>
-</div>
+
 <h3 class="text-center featured" style="color: #b00808;">Featured Property</h3>
 <div class="row mx-5">
-<div class="col-md-3 p-3" v-for="house in houses" :key="house.id">
+<div class="col-md-3 p-3" v-for="house in filteredHouse" :key="house.id">
   <div class="border-2 cursor-pointer" id="card">
   <div>
     <img class="w-100" :src="house.photo">
@@ -95,6 +86,16 @@
   </div>
 
 </div>
+</div>
+<div class="row" id="about-section">
+  <div class="col-md-6">
+    <img style="width: 100%;" src="https://media.istockphoto.com/photos/young-african-woman-relaxing-at-home-with-a-digital-tablet-picture-id896374860?k=20&m=896374860&s=612x612&w=0&h=Y2LR9GfsLDYCGN7GTt09RFhJv6sR37AMkFAeDhJYZVc=">
+  </div>
+  <div class="col-md-6 p-5">
+    <h3 style="color: #b00808;">About Us</h3>
+    <br/>
+    <p style="text-align: left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  </div>
 </div>
 <div class="row" style="background-color: #b00808;">
   <div class="col-md-7">
@@ -274,9 +275,9 @@ export default {
     };
   },
   computed: {
-    filteredSong() {
-      return this.songs.filter((song) =>
-        song.name.toLowerCase().includes(this.search.toLowerCase())
+    filteredHouse() {
+      return this.houses.filter((house) =>
+        house.name.toLowerCase().includes(this.search.toLowerCase())
       );
     },
   },
