@@ -18,9 +18,14 @@
  <h3>Mortgages For Sale</h3>
  <div class="row mx-5">
 <div class="col-md-3 p-3" v-for="house in houses" :key="house.id">
-  <div class="border-2 cursor-pointer" id="card">
+  <div style="height: 370px"
+					class="border-2 cursor-pointer"
+					id="card"
+					role="button"
+					data-bs-toggle="modal"
+					:data-bs-target="`#details${house.id}`">
   <div>
-    <img class="w-100" :src="house.photo">
+    <img class="w-100" style="height: 250px; object-fit: cover" :src="house.photo">
   </div>
   <div class="mt-2 mx-1 pb-2" style="display: flex; border-bottom: 1px #cccccc solid; justify-content: space-around;">
     <div style="font-size: 13px; border-right: 1px #cccccc solid; width: 55%;" class="px-2" >{{ house.name}}</div>
@@ -32,6 +37,157 @@
     <div class="p-2" style="width: 25%; font-size: 13px; text-align: center;"><i class="bi bi-geo-fill" style="color: #b00808; "></i><br/> {{house.land}}</div>
   </div>
   </div>
+
+  <div
+					class="modal fade"
+					:id="`details${house.id}`"
+					tabindex="-1"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								></button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div
+											id="carouselExampleControls"
+											class="carousel slide"
+											data-bs-ride="carousel"
+										>
+											<div class="carousel-indicators">
+												<button
+													type="button"
+													data-bs-target="#carouselExampleIndicators"
+													data-bs-slide-to="0"
+													class="active"
+													aria-current="true"
+													aria-label="Slide 1"
+												></button>
+												<button
+													type="button"
+													data-bs-target="#carouselExampleIndicators"
+													data-bs-slide-to="1"
+													aria-label="Slide 2"
+												></button>
+												<button
+													type="button"
+													data-bs-target="#carouselExampleIndicators"
+													data-bs-slide-to="2"
+													aria-label="Slide 3"
+												></button>
+											</div>
+											<div class="carousel-inner">
+												<div class="carousel-item active">
+													<img
+														class="w-100"
+														style="height: 350px; object-fit: cover"
+														:src="house.photo"
+													/>
+												</div>
+												<div class="carousel-item">
+													<img
+														class="w-100"
+														style="height: 350px; object-fit: cover"
+														:src="house.photo2"
+													/>
+												</div>
+												<div class="carousel-item">
+													<img
+														class="w-100"
+														style="height: 350px; object-fit: cover"
+														:src="house.photo3"
+													/>
+												</div>
+											</div>
+											<button
+												class="carousel-control-prev"
+												type="button"
+												data-bs-target="#carouselExampleControls"
+												data-bs-slide="prev"
+											>
+												<span
+													class="carousel-control-prev-icon"
+													aria-hidden="true"
+												></span>
+												<span class="visually-hidden">Previous</span>
+											</button>
+											<button
+												class="carousel-control-next"
+												type="button"
+												data-bs-target="#carouselExampleControls"
+												data-bs-slide="next"
+											>
+												<span
+													class="carousel-control-next-icon"
+													aria-hidden="true"
+												></span>
+												<span class="visually-hidden">Next</span>
+											</button>
+										</div>
+										<br />
+										<div
+											class="border-bottom-2 mx-1"
+											style="display: flex; justify-content: space-around"
+										>
+											<div
+												class="p-2"
+												style="
+													border-right: 1px #cccccc solid;
+													width: 25%;
+													font-size: 13px;
+													text-align: center;
+												"
+											>
+												<i class="bi bi-house" style="color: #b00808"></i><br />
+												{{ house.bedrooms }}
+											</div>
+											<div
+												class="p-2"
+												style="
+													border-right: 1px #cccccc solid;
+													width: 50%;
+													font-size: 13px;
+													text-align: center;
+												"
+											>
+												<i style="color: #b00808" class="bi bi-geo-alt"></i
+												><br />
+												{{ house.location }}
+											</div>
+											<div
+												class="p-2"
+												style="width: 25%; font-size: 13px; text-align: center"
+											>
+												<i class="bi bi-geo-fill" style="color: #b00808"></i
+												><br />
+												{{ house.land }}
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6" style="text-align: left">
+										<h3 style="color: #b00808">{{ house.name }}</h3>
+										<br />
+										<h6 style="color: #b00808">{{ house.land }}</h6>
+										<h6 style="color: #b00808">{{ house.location }}</h6>
+										<br />
+										<p style="font-size: 12px">{{ house.description }}</p>
+									</div>
+								</div>
+
+								<div class="modal-footer"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 </div>
 </div>
@@ -49,198 +205,43 @@ export default {
 data(){
   return{
       houses: [
-        {
-          id: 1,
-          code: "PL001",
-          name: "Hostels for Makerere",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/exterior-facade-of-a-white-new-construction-house-picture-id1223041319?k=20&m=1223041319&s=612x612&w=0&h=uc52sJhQPAHoGHqjGmDUsJhtl1fXRc3HsD1QFn0IqO4=",
-        },
-        {
-          id: 2,
-          code: "PL002",
-          name: "Appartments in Bugologbi",
-          amount:  "109,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Kampala Bugolobi",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/empty-white-new-construction-cottage-house-just-completed-picture-id1128971960?k=20&m=1128971960&s=612x612&w=0&h=aFsHnnUSVGzgFoKVR0humPn0EBCAQIvz_laAjnzqXsY=",
-        },
-        {
-          id: 3,
-          code: "PL003",
-          name: "Well Established bar",
-          amount:  "60,000,000",
-          bedrooms:"4",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/simple-but-modern-house-design-picture-id172255695?k=20&m=172255695&s=612x612&w=0&h=fUtqjF1b3VDPCTJFeH4kBy5HAc_jM5bzu8yOjidRSEA=",
-        },
-        {
-          id: 4,
-          code: "PL004",
-          name: "Land and Farm",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Luweero",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/side-and-real-view-of-craftsman-house-picture-id1158713212?k=20&m=1158713212&s=612x612&w=0&h=TOV1x9nl0vOH2i4pjamQVMwCYoWSerl6sIvJbVWZ7FI=",
-        },
-                {
-          id: 5,
-          code: "PL005",
-          name: "Restaurant ",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Ntinda",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/back-yard-of-two-story-home-picture-id1348833319?k=20&m=1348833319&s=612x612&w=0&h=0dfiAVxuzb9gWp7CxOk-bZragh-sYgEQPbQKQSo7NBQ=",
-        },
-        {
-          id: 6,
-          code: "PL006",
-          name: "Rentals",
-          amount:  "59,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Kireka",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/beige-and-brown-siding-house-exterior-picture-id585780354?k=20&m=585780354&s=612x612&w=0&h=II0u7xPTi6nPGmvYTJGoxa7JjwDdeMM1EeHbuJfoD2c=",
-        },
-        {
-          id: 7,
-          code: "PL007",
-          name: "Well Established bar",
-          amount:  "60,000,000",
-          bedrooms:"4",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/new-modern-home-in-gray-with-a-green-lawn-picture-id175505035?k=20&m=175505035&s=612x612&w=0&h=dkv5viEDOh44lNkv6xwBTaEIsAZnJE7hz70W0enz-U0=",
-        },
-        {
-          id: 8,
-          code: "PL008",
-          name: "Land and Farm",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Luweero",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/traditional-northwest-home-with-driveway-picture-id480774836?k=20&m=480774836&s=612x612&w=0&h=jg_MG29H6zqWGJcqjguwDTmd9ZQQgej8GYyXrEHSQJ8=",
-        },
-                {
-          id: 9,
-          code: "PL001",
-          name: "Hostels for Makerere",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/exterior-facade-of-a-white-new-construction-house-picture-id1223041319?k=20&m=1223041319&s=612x612&w=0&h=uc52sJhQPAHoGHqjGmDUsJhtl1fXRc3HsD1QFn0IqO4=",
-        },
-        {
-          id: 10,
-          code: "PL002",
-          name: "Appartments in Bugologbi",
-          amount:  "109,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Kampala Bugolobi",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/empty-white-new-construction-cottage-house-just-completed-picture-id1128971960?k=20&m=1128971960&s=612x612&w=0&h=aFsHnnUSVGzgFoKVR0humPn0EBCAQIvz_laAjnzqXsY=",
-        },
-        {
-          id: 11,
-          code: "PL003",
-          name: "Well Established bar",
-          amount:  "60,000,000",
-          bedrooms:"4",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/simple-but-modern-house-design-picture-id172255695?k=20&m=172255695&s=612x612&w=0&h=fUtqjF1b3VDPCTJFeH4kBy5HAc_jM5bzu8yOjidRSEA=",
-        },
-        {
-          id: 12,
-          code: "PL004",
-          name: "Land and Farm",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Luweero",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/side-and-real-view-of-craftsman-house-picture-id1158713212?k=20&m=1158713212&s=612x612&w=0&h=TOV1x9nl0vOH2i4pjamQVMwCYoWSerl6sIvJbVWZ7FI=",
-        },
-                {
-          id: 13,
-          code: "PL005",
-          name: "Restaurant ",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Ntinda",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/back-yard-of-two-story-home-picture-id1348833319?k=20&m=1348833319&s=612x612&w=0&h=0dfiAVxuzb9gWp7CxOk-bZragh-sYgEQPbQKQSo7NBQ=",
-        },
-        {
-          id: 14,
-          code: "PL006",
-          name: "Rentals",
-          amount:  "59,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Kireka",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/beige-and-brown-siding-house-exterior-picture-id585780354?k=20&m=585780354&s=612x612&w=0&h=II0u7xPTi6nPGmvYTJGoxa7JjwDdeMM1EeHbuJfoD2c=",
-        },
-        {
-          id: 15,
-          code: "PL007",
-          name: "Well Established bar",
-          amount:  "60,000,000",
-          bedrooms:"4",
-          land: "4 hecters",
-          location: "Mukono Seeta",
-          category: "Sell",
-          photo:
-            "https://media.istockphoto.com/photos/new-modern-home-in-gray-with-a-green-lawn-picture-id175505035?k=20&m=175505035&s=612x612&w=0&h=dkv5viEDOh44lNkv6xwBTaEIsAZnJE7hz70W0enz-U0=",
-        },
-        {
-          id: 16,
-          code: "PL008",
-          name: "Land and Farm",
-          amount:  "89,000,000",
-          bedrooms:"3",
-          land: "4 hecters",
-          location: "Luweero",
-          category: "Mortgage",
-          photo:
-            "https://media.istockphoto.com/photos/traditional-northwest-home-with-driveway-picture-id480774836?k=20&m=480774836&s=612x612&w=0&h=jg_MG29H6zqWGJcqjguwDTmd9ZQQgej8GYyXrEHSQJ8=",
-        },
+      {
+					id: 2,
+					code: "PL002",
+					name: "ALEISURE CENTRE",
+					amount: "",
+					bedrooms: "3",
+					land: "I acre",
+					location: "Town Council,Mawogola County,Ssembabule District",
+					category: "Mortgage",
+					description:
+						"Semi finished flat house, developed gardens, Water and Power access, On the main road from Matete to Mbirizi town, good roads. Good for Entertainment, Leisure center, Lodgers. Serious buyers / inquiries, call 0776141212/ 0700141212.pamojachambers@gmail.com",
+					photo2:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669100204/pamoja10_a1noim.jpg",
+					photo3:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669099258/pamoja9_jwa8q0.jpg",
+					photo4: "",
+					photo:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669100198/pamoja8_boqgrn.jpg",
+				},
+				{
+					id: 4,
+					code: "PL004",
+					name: "Beach Land",
+					amount: "1,600,000,000",
+					bedrooms: "",
+					land: "4 acres",
+					location: "Entebbe, Kasanje",
+					category: "Mortgage",
+					description:
+						"Location;Entebbe, Kasanje,  , 4 acres,  at 1.6 bn ugx, Ideal for Beach,Resort,Apartiments,Hotel,Gardens,School,Hospital,Residence. No incumbraces or third party claims.Free hold ready land tittle. Contact PamojaPropertylink, for More information / Inspection on  0776141212/ pamojachambers@gmail.com",
+					photo:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669117556/pamoja11_wfpawh.jpg",
+					photo2:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669117555/pamoja14_ju1y8y.jpg",
+					photo3:
+						"https://res.cloudinary.com/dtlkiv19d/image/upload/v1669117609/pamoja15_agiwor.jpg",
+				},
       ],
   }
 }

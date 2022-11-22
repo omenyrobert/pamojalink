@@ -10,7 +10,7 @@
      
       <br/>
       <h5>{{review.name}}</h5>
-      <p>{{review.Comment}}</p>
+      <h6 id="comment">{{review.Comment}}</h6>
       </div></div>
 
     </VueSlickCarousel>
@@ -117,13 +117,19 @@ data(){
 </script> 
 <style scoped>
 #img1{
-  width: 80%;
+  width: 200px;
+  height: 200px;
   z-index: -100;
     border: 5px #b00808 solid;
+    object-fit: cover;
   border-radius: 100%;
 }
 #imgBox{
   height: 200px;
   width: 200px;
+}
+#comment{
+  font-weight: 100;
+  font-size: smaller;
 }
 </style>
